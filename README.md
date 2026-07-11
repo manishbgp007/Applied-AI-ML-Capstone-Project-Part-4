@@ -221,7 +221,7 @@ Combined with a fallback mechanism, schema validation ensures that the applicati
  ### Task 5: Guardrails
    * To improve the safety and privacy of the application, a **guardrail mechanism** was implemented before sending user input to the Large Language Model (LLM). The purpose of these guardrails was to detect and prevent the transmission of **Personally Identifiable Information (PII)**, such as email addresses and phone numbers.
 
-* **Purpose of Guardrails
+* **Purpose of Guardrails**
   * Large Language Models should not process sensitive personal information unless it is explicitly required and handled securely. Therefore, an input validation step was added to identify common forms of PII before any request was sent to the LLM.
   * This helps protect user privacy and reduces the risk of exposing sensitive information.
 
@@ -266,6 +266,62 @@ Although Regex-based detection is effective for common patterns, more advanced v
 
 * **Outcome**
   * A guardrail system was successfully implemented using **Regular Expressions (Regex)** to detect email addresses and phone numbers before sending requests to the LLM. Inputs containing personally identifiable information were correctly blocked, while inputs without sensitive data passed validation and were processed normally. This mechanism enhanced the privacy, security, and reliability of the application by preventing unintended exposure of user information.
+ 
+
+### Task 6: End-to-End Demonstration
+
+The final task demonstrated the complete workflow of the project by integrating the machine learning pipeline, Large Language Model (LLM), JSON validation, and guardrail mechanisms into a single end-to-end system. The objective was to verify that all components worked together correctly, from receiving input data to generating validated AI explanations.
+
+* **Workflow Overview**
+  * For each test input, the following steps were executed:
+    * 1. The feature values were provided to the trained machine learning pipeline.
+    * 2. The model predicted the target class and calculated the prediction probability.
+    * 3. The prediction details were formatted into a prompt and sent to the LLM.
+    * 4. The LLM generated a structured JSON explanation.
+    * 5. The generated JSON was validated against the predefined schema.
+    * 6. The guardrail system checked the input for Personally Identifiable Information (PII) before processing.
+    * 7. The validated explanation was returned as the final output.
+
+This workflow ensured that every prediction was accompanied by a reliable, structured, and safe explanation.
+
+* **Demonstration Results**
+
+The end-to-end system was tested using three different feature inputs.
+
+| Feature Input | Predicted Class | Prediction Probability | LLM Output       | JSON Validation | Guardrail Status |
+| ------------- | --------------: | ---------------------: | ---------------- | --------------- | ---------------- |
+| **Input 1**   |               1 |                   0.87 | JSON explanation | Pass            | Pass             |
+| **Input 2**   |               0 |                   0.65 | JSON explanation | Pass            | Pass             |
+| **Input 3**   |               1 |                   0.92 | JSON explanation | Pass            | Pass             |
+
+The table summarizes the complete processing pipeline for each test case, including the model prediction, prediction confidence, AI-generated explanation, JSON validation result, and guardrail status.
+
+* **Interpretation of Results**
+  * The demonstration confirmed that:
+    * The machine learning model successfully generated predictions for all test inputs.
+    * Prediction probabilities were produced alongside the predicted class.
+    * The LLM generated explanations in the required JSON format.
+    * Every response successfully passed JSON schema validation.
+    * The guardrail mechanism confirmed that none of the test inputs contained Personally Identifiable Information (PII).
+    * No fallback mechanism was required because all generated outputs were valid.
+
+These results demonstrate that the integrated system operated correctly from start to finish.
+
+* **Importance of End-to-End Testing**
+  * End-to-end testing verifies that all individual components of the application function together as a complete system.
+  * This validation is important because it confirms:
+    * Correct interaction between the machine learning model and the LLM.
+    * Reliable prompt generation.
+    * Consistent structured JSON output.
+    * Successful schema validation.
+    * Effective guardrail enforcement.
+    * Stable system behavior during real-world usage.
+
+Testing the complete workflow provides confidence that the application is ready for deployment.
+
+* **Outcome**
+  * The end-to-end demonstration successfully validated the complete AI-powered prediction pipeline. All three test inputs produced correct class predictions, associated probability scores, and structured JSON explanations generated by the LLM. Every explanation passed JSON schema validation, and all inputs successfully cleared the guardrail checks. These results confirmed that the integrated system is reliable, reproducible, and capable of delivering safe, structured, and explainable predictions suitable for real-world deployment.
+
 
 
 

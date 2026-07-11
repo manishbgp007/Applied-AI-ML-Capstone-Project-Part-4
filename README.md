@@ -113,12 +113,11 @@ _______________________________________
   * Since this project requires structured JSON responses that can be processed programmatically, understanding the impact of temperature is essential.
 
 * **Comparison Results**
-
-  * **| Test Input  | Output (Temperature = 0)                      | Output (Temperature = 0.7)                               | Key Difference                            |**
-      | ----------- | --------------------------------------------- | -------------------------------------------------------- | ----------------------------------------- |
-      | **Input 1** | Consistent and identical JSON output          | More varied wording and explanations                     | Deterministic vs. variable responses      |
-      | **Input 2** | Same JSON structure with consistent reasoning | Different explanations while preserving the main meaning | Increased diversity at higher temperature |
-      | **Input 3** | Valid JSON generated consistently             | Occasional formatting drift or inconsistent JSON         | Higher risk of invalid structured output  |
+  **| Test Input  | Output (Temperature = 0)                      | Output (Temperature = 0.7)                               | Key Difference                            |**
+    | ----------- | --------------------------------------------- | -------------------------------------------------------- | ----------------------------------------- |
+    | **Input 1** | Consistent and identical JSON output          | More varied wording and explanations                     | Deterministic vs. variable responses      |
+    | **Input 2** | Same JSON structure with consistent reasoning | Different explanations while preserving the main meaning | Increased diversity at higher temperature |
+    | **Input 3** | Valid JSON generated consistently             | Occasional formatting drift or inconsistent JSON         | Higher risk of invalid structured output  |
 
 * **Interpretation of Temperature = 0**
   * When the model was configured with **Temperature = 0**, the generated responses were highly deterministic.
@@ -272,11 +271,11 @@ The final task demonstrated the complete workflow of the project by integrating 
 
 * **Demonstration Results**
   * The end-to-end system was tested using three different feature inputs.
-    * **| Feature Input | Predicted Class | Prediction Probability | LLM Output       | JSON Validation | Guardrail Status |**
-        | ------------- | --------------: | ---------------------: | ---------------- | --------------- | ---------------- |
-        | **Input 1**   |               1 |                   0.87 | JSON explanation | Pass            | Pass             |
-        | **Input 2**   |               0 |                   0.65 | JSON explanation | Pass            | Pass             |
-        | **Input 3**   |               1 |                   0.92 | JSON explanation | Pass            | Pass             |
+    **| Feature Input | Predicted Class | Prediction Probability | LLM Output       | JSON Validation | Guardrail Status |**
+      | ------------- | --------------: | ---------------------: | ---------------- | --------------- | ---------------- |
+      | **Input 1**   |               1 |                   0.87 | JSON explanation | Pass            | Pass             |
+      | **Input 2**   |               0 |                   0.65 | JSON explanation | Pass            | Pass             |
+      | **Input 3**   |               1 |                   0.92 | JSON explanation | Pass            | Pass             |
   * The table summarizes the complete processing pipeline for each test case, including the model prediction, prediction confidence, AI-generated explanation, JSON validation result, and guardrail status.
 
 * **Interpretation of Results**

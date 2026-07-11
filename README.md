@@ -1,11 +1,10 @@
 ## Applied-AI-ML-Capstone-Project-Part-4
-
+_________________________________________
 ### Part 4 — LLM-Powered Feature: Structured Extraction, Tabular Batch Scoring, or Model Prediction Explanation
-
+_______________________________________________________________________________________________________________
 ### Task 1: LLM API Connection
-
+______________________________
 The first step in Part 4 was to establish a secure connection between the application and a Large Language Model (LLM) API. This connection enables the project to send prompts to the language model and receive AI-generated responses, forming the foundation for the intelligent features implemented in the later tasks.
-
 
 * **Implementing the `call_llm()` Function**
   * A reusable function named **`call_llm()`** was implemented to handle all communication with the LLM API.
@@ -14,7 +13,7 @@ The first step in Part 4 was to establish a secure connection between the applic
     * Receiving the generated response.
     * Returning the response in a structured format.
     * Managing communication with the API through a single reusable interface.
-Using a dedicated function improves code readability, maintainability, and makes future updates easier.
+ * Using a dedicated function improves code readability, maintainability, and makes future updates easier.
 
 * **Secure API Key Handling**
   * The API key was handled securely to protect sensitive credentials.
@@ -23,9 +22,8 @@ Using a dedicated function improves code readability, maintainability, and makes
     * Prevents accidental exposure of secret credentials.
     * Improves application security.
     * Allows the same code to be used across different environments.
-    * Follows standard software development and deployment best practices.
-   
-Sensitive credentials were **not** stored in the GitHub repository.
+    * Follows standard software development and deployment best practices. 
+  * Sensitive credentials were **not** stored in the GitHub repository.
 
 * **Testing the Connection**
   * To verify that the API connection was working correctly, the `call_llm()` function was tested using a simple prompt.
@@ -34,7 +32,7 @@ Sensitive credentials were **not** stored in the GitHub repository.
     * The request was successfully transmitted.
     * The LLM generated a valid response.
     * Communication between the application and the language model was functioning correctly.
-This verification ensured that the API integration was successful before implementing more advanced LLM-powered features.
+  * This verification ensured that the API integration was successful before implementing more advanced LLM-powered features.
 
 * **Importance of the LLM API Connection**
   * Establishing a reliable API connection is an essential step because it enables the application to:
@@ -43,14 +41,15 @@ This verification ensured that the API integration was successful before impleme
     * Answer user questions about the dataset.
     * Produce natural language insights.
     * Support intelligent decision-making based on machine learning outputs.
-A secure and reusable API interface also simplifies future development and deployment.
+  * A secure and reusable API interface also simplifies future development and deployment.
 
 * **Outcome**
   * The **`call_llm()`** function was successfully implemented with secure API key management and tested using a simple prompt. The successful response confirmed that the application could communicate reliably with the Large Language Model, providing the foundation for all subsequent AI-powered functionality in the project.
 
 
 ### Task 2: Prompt Design
-  * A carefully structured prompt was designed to ensure that the Large Language Model (LLM) produces consistent, accurate, and machine-readable responses. The prompt was divided into two components: a **System Prompt** and a **User Prompt Template**. This separation improves reliability and makes the application easier to maintain.
+_________________________
+A carefully structured prompt was designed to ensure that the Large Language Model (LLM) produces consistent, accurate, and machine-readable responses. The prompt was divided into two components: a **System Prompt** and a **User Prompt Template**. This separation improves reliability and makes the application easier to maintain.
 
 * **System Prompt**
   * The **System Prompt** defines the behavior and role of the language model throughout the conversation.
@@ -61,7 +60,7 @@ A secure and reusable API interface also simplifies future development and deplo
     * Returns responses only in valid JSON format.
     * Avoids generating unnecessary text or conversational responses.
     * Produces structured output that can be easily parsed by the application.
-Using a strict system prompt improves consistency and reduces the likelihood of formatting errors.
+  * Using a strict system prompt improves consistency and reduces the likelihood of formatting errors.
 
 * **User Prompt Template**
   * The **User Prompt** contains the specific information required for generating an explanation for an individual prediction.
@@ -83,8 +82,7 @@ Using a strict system prompt improves consistency and reduces the likelihood of 
     * Reduces variation in wording.
     * Ensures stable JSON formatting.
     * Simplifies automated parsing and validation.
-
-Deterministic responses are particularly important when the output must conform to a predefined schema.
+  * Deterministic responses are particularly important when the output must conform to a predefined schema.
 
 * **Importance of Structured Prompt Design**
   * Well-designed prompts improve both the quality and reliability of LLM-generated responses.
@@ -94,14 +92,13 @@ Deterministic responses are particularly important when the output must conform 
     * Easier debugging and maintenance.
     * Better compatibility with automated validation.
     * Reduced risk of malformed or incomplete responses.
-
-This approach is considered a best practice when integrating LLMs into software applications.
+  * This approach is considered a best practice when integrating LLMs into software applications.
 
 * **Outcome**
-  * A structured prompting strategy was successfully implemented using a **System Prompt** to define the model's behavior and a **User Prompt Template** containing feature values, predicted class, and prediction probability. Setting **Temperature = 0** ensured deterministic and reproducible outputs, allowing the language model to consistently generate valid JSON responses suitable for automated processing and schema validation.
-
+A structured prompting strategy was successfully implemented using a **System Prompt** to define the model's behavior and a **User Prompt Template** containing feature values, predicted class, and prediction probability. Setting **Temperature = 0** ensured deterministic and reproducible outputs, allowing the language model to consistently generate valid JSON responses suitable for automated processing and schema validation.
 
 ### Task 3: Temperature A/B Comparison
+_______________________________________
   * To understand how the **temperature** parameter affects the responses generated by the Large Language Model (LLM), an A/B comparison was performed using two different temperature settings:
     * **Temperature = 0.0**
     * **Temperature = 0.7**
@@ -145,13 +142,11 @@ This approach is considered a best practice when integrating LLMs into software 
 
 * **Comparison Summary**
   * The experiment demonstrated a clear trade-off between consistency and creativity:
-
   * **Temperature = 0**
     * Deterministic output.
     * Consistent JSON structure.
     * High reproducibility.
     * Best suited for production systems requiring structured responses.
-  
   * **Temperature = 0.7**
     * More diverse and natural responses.
     * Greater variation in wording and explanations.
@@ -159,11 +154,11 @@ This approach is considered a best practice when integrating LLMs into software 
     * Better suited for conversational or creative applications.
 
 * **Outcome**
-  * The temperature comparison confirmed that **Temperature = 0** is the preferred configuration for this project because it consistently produces deterministic, reproducible, and valid JSON outputs required for automated processing and schema validation. In contrast, **Temperature = 0.7** generates more varied and creative responses but introduces additional randomness, making it less suitable for applications that depend on strict output formatting.
+The temperature comparison confirmed that **Temperature = 0** is the preferred configuration for this project because it consistently produces deterministic, reproducible, and valid JSON outputs required for automated processing and schema validation. In contrast, **Temperature = 0.7** generates more varied and creative responses but introduces additional randomness, making it less suitable for applications that depend on strict output formatting.
  
  
 ### Task 4: Structured Output Handling
-
+______________________________________
 To ensure that the responses generated by the Large Language Model (LLM) were reliable and machine-readable, a **structured output handling mechanism** was implemented. A predefined **JSON schema** was used to enforce a consistent response format, and every generated output was validated before being used by the application.
 
 * **Defining the JSON Schema**
@@ -174,8 +169,7 @@ To ensure that the responses generated by the Large Language Model (LLM) were re
     * Required fields are always present.
     * Data types are consistent.
     * Responses can be processed automatically without manual checking.
-
-This standardized format improves reliability and simplifies downstream processing.
+  * This standardized format improves reliability and simplifies downstream processing.
 
 * **Schema Validation**
   * After receiving a response from the LLM, the output was validated using the **`jsonschema.validate()`** function.
@@ -185,8 +179,7 @@ This standardized format improves reliability and simplifies downstream processi
     * Field names matched the schema.
     * The values followed the expected data types.
     * The overall structure conformed to the predefined specification.
-
-Only responses that successfully passed validation were accepted for further use.
+  * Only responses that successfully passed validation were accepted for further use.
 
 * **Fallback Mechanism**
   * A fallback mechanism was implemented to handle cases where the generated response failed schema validation.
@@ -201,8 +194,7 @@ Only responses that successfully passed validation were accepted for further use
     * Regenerate the response using the LLM.
     * Display a structured error message.
     * Prevent invalid output from affecting subsequent processing.
-
-This approach increased the robustness and reliability of the application.
+  * This approach increased the robustness and reliability of the application.
 
 * **Importance of Structured Output Validation**
   * Schema validation is an essential step when integrating LLMs into production systems because language models may occasionally produce unexpected or incorrectly formatted responses.
@@ -212,15 +204,15 @@ This approach increased the robustness and reliability of the application.
     * Improves application reliability.
     * Simplifies integration with downstream software components.
     * Enables safe automation without manual intervention.
-
-Combined with a fallback mechanism, schema validation ensures that the application continues to function correctly even when an invalid response is generated.
+  * Combined with a fallback mechanism, schema validation ensures that the application continues to function correctly even when an invalid response is generated.
 
 * **Outcome**
-  * A structured output handling system was successfully implemented using a **JSON schema** with **five required fields**. Every response generated by the LLM was validated using **`jsonschema.validate()`**, ensuring that only correctly formatted outputs were accepted. If validation failed, a fallback mechanism was automatically applied to maintain application stability and reliability. This approach improved the robustness of the system and ensured that all AI-generated responses were suitable for automated processing and deployment.
+A structured output handling system was successfully implemented using a **JSON schema** with **five required fields**. Every response generated by the LLM was validated using **`jsonschema.validate()`**, ensuring that only correctly formatted outputs were accepted. If validation failed, a fallback mechanism was automatically applied to maintain application stability and reliability. This approach improved the robustness of the system and ensured that all AI-generated responses were suitable for automated processing and deployment.
 
 
  ### Task 5: Guardrails
-   * To improve the safety and privacy of the application, a **guardrail mechanism** was implemented before sending user input to the Large Language Model (LLM). The purpose of these guardrails was to detect and prevent the transmission of **Personally Identifiable Information (PII)**, such as email addresses and phone numbers.
+ _______________________
+To improve the safety and privacy of the application, a **guardrail mechanism** was implemented before sending user input to the Large Language Model (LLM). The purpose of these guardrails was to detect and prevent the transmission of **Personally Identifiable Information (PII)**, such as email addresses and phone numbers.
 
 * **Purpose of Guardrails**
   * Large Language Models should not process sensitive personal information unless it is explicitly required and handled securely. Therefore, an input validation step was added to identify common forms of PII before any request was sent to the LLM.
@@ -231,29 +223,24 @@ Combined with a fallback mechanism, schema validation ensures that the applicati
   * The guardrail checked for information such as:
     * **Email addresses**
     * **Phone numbers**
-
-Regex provides a fast and efficient way to detect text that matches known patterns for these types of personal information.
+  * Regex provides a fast and efficient way to detect text that matches known patterns for these types of personal information.
 
 * **Input Validation Results**
-The guardrail was tested using different types of input.
-
-* Input Containing an Email Address
+  * The guardrail was tested using different types of input.
+  * Input Containing an Email Address
   * An input containing an email address was submitted to the validation system.
   * **Result:**
     * The Regex pattern successfully detected the email address.
     * The request was blocked before reaching the LLM.
     * A validation message was returned to indicate that sensitive information had been detected.
-
-This confirmed that the guardrail correctly prevented the processing of personal data.
-
-* Input Without Personally Identifiable Information
+  * This confirmed that the guardrail correctly prevented the processing of personal data.
+  * Input Without Personally Identifiable Information
   * A second input containing no email address or phone number was tested.
   * **Result:**
     * No sensitive information was detected.
     * The input passed validation successfully.
     * The request was safely forwarded to the LLM for processing.
-
-This verified that normal, non-sensitive requests were not unnecessarily restricted.
+  * This verified that normal, non-sensitive requests were not unnecessarily restricted.
 
 * **Importance of Guardrails**
   * Input guardrails are an important component of responsible AI systems because they help:
@@ -262,15 +249,14 @@ This verified that normal, non-sensitive requests were not unnecessarily restric
     * Reduce security risks.
     * Ensure compliance with organizational or regulatory requirements.
     * Improve the safety and reliability of AI-powered applications.
-
-Although Regex-based detection is effective for common patterns, more advanced validation methods can be incorporated in future versions to identify additional forms of sensitive information.
+  * Although Regex-based detection is effective for common patterns, more advanced validation methods can be incorporated in future versions to identify additional forms of sensitive information.
 
 * **Outcome**
-  * A guardrail system was successfully implemented using **Regular Expressions (Regex)** to detect email addresses and phone numbers before sending requests to the LLM. Inputs containing personally identifiable information were correctly blocked, while inputs without sensitive data passed validation and were processed normally. This mechanism enhanced the privacy, security, and reliability of the application by preventing unintended exposure of user information.
+A guardrail system was successfully implemented using **Regular Expressions (Regex)** to detect email addresses and phone numbers before sending requests to the LLM. Inputs containing personally identifiable information were correctly blocked, while inputs without sensitive data passed validation and were processed normally. This mechanism enhanced the privacy, security, and reliability of the application by preventing unintended exposure of user information.
  
 
 ### Task 6: End-to-End Demonstration
-
+____________________________________
 The final task demonstrated the complete workflow of the project by integrating the machine learning pipeline, Large Language Model (LLM), JSON validation, and guardrail mechanisms into a single end-to-end system. The objective was to verify that all components worked together correctly, from receiving input data to generating validated AI explanations.
 
 * **Workflow Overview**
@@ -282,11 +268,9 @@ The final task demonstrated the complete workflow of the project by integrating 
     * 5. The generated JSON was validated against the predefined schema.
     * 6. The guardrail system checked the input for Personally Identifiable Information (PII) before processing.
     * 7. The validated explanation was returned as the final output.
-
-This workflow ensured that every prediction was accompanied by a reliable, structured, and safe explanation.
+  * This workflow ensured that every prediction was accompanied by a reliable, structured, and safe explanation.
 
 * **Demonstration Results**
-
 The end-to-end system was tested using three different feature inputs.
 
 | Feature Input | Predicted Class | Prediction Probability | LLM Output       | JSON Validation | Guardrail Status |
@@ -305,8 +289,7 @@ The table summarizes the complete processing pipeline for each test case, includ
     * Every response successfully passed JSON schema validation.
     * The guardrail mechanism confirmed that none of the test inputs contained Personally Identifiable Information (PII).
     * No fallback mechanism was required because all generated outputs were valid.
-
-These results demonstrate that the integrated system operated correctly from start to finish.
+  * These results demonstrate that the integrated system operated correctly from start to finish.
 
 * **Importance of End-to-End Testing**
   * End-to-end testing verifies that all individual components of the application function together as a complete system.
@@ -317,11 +300,10 @@ These results demonstrate that the integrated system operated correctly from sta
     * Successful schema validation.
     * Effective guardrail enforcement.
     * Stable system behavior during real-world usage.
-
-Testing the complete workflow provides confidence that the application is ready for deployment.
+  * Testing the complete workflow provides confidence that the application is ready for deployment.
 
 * **Outcome**
-  * The end-to-end demonstration successfully validated the complete AI-powered prediction pipeline. All three test inputs produced correct class predictions, associated probability scores, and structured JSON explanations generated by the LLM. Every explanation passed JSON schema validation, and all inputs successfully cleared the guardrail checks. These results confirmed that the integrated system is reliable, reproducible, and capable of delivering safe, structured, and explainable predictions suitable for real-world deployment.
+The end-to-end demonstration successfully validated the complete AI-powered prediction pipeline. All three test inputs produced correct class predictions, associated probability scores, and structured JSON explanations generated by the LLM. Every explanation passed JSON schema validation, and all inputs successfully cleared the guardrail checks. These results confirmed that the integrated system is reliable, reproducible, and capable of delivering safe, structured, and explainable predictions suitable for real-world deployment.
 
 
 

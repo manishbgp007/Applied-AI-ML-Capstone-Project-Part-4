@@ -47,3 +47,54 @@ A secure and reusable API interface also simplifies future development and deplo
 * **Outcome**
   * The **`call_llm()`** function was successfully implemented with secure API key management and tested using a simple prompt. The successful response confirmed that the application could communicate reliably with the Large Language Model, providing the foundation for all subsequent AI-powered functionality in the project.
 
+
+### Task 2: Prompt Design
+  * A carefully structured prompt was designed to ensure that the Large Language Model (LLM) produces consistent, accurate, and machine-readable responses. The prompt was divided into two components: a **System Prompt** and a **User Prompt Template**. This separation improves reliability and makes the application easier to maintain.
+
+* **System Prompt**
+  * The **System Prompt** defines the behavior and role of the language model throughout the conversation.
+  * The following instruction was used:
+    * **"You are an AI explainer. Output only valid JSON with the required fields."**
+  * This instruction ensures that the model:
+    * Acts as an AI explanation assistant.
+    * Returns responses only in valid JSON format.
+    * Avoids generating unnecessary text or conversational responses.
+    * Produces structured output that can be easily parsed by the application.
+Using a strict system prompt improves consistency and reduces the likelihood of formatting errors.
+
+* **User Prompt Template**
+  * The **User Prompt** contains the specific information required for generating an explanation for an individual prediction.
+  * The prompt template includes:
+    * The input **feature values** for the selected observation.
+    * The model's **predicted class**.
+    * The **prediction probability** or confidence score.
+    * Instructions describing the expected explanation.
+  * Because the feature values change for every prediction, the prompt template is dynamically populated before being sent to the LLM.
+  * This design enables the language model to generate explanations that are specific to each prediction rather than generic descriptions.
+
+* **Deterministic Output Using Temperature = 0**
+  * The model was configured with:
+    * **Temperature = 0**
+  * A temperature value of **0** minimizes randomness in the generated responses.
+  * This provides several advantages:
+    * Produces consistent outputs for identical prompts.
+    * Improves reproducibility.
+    * Reduces variation in wording.
+    * Ensures stable JSON formatting.
+    * Simplifies automated parsing and validation.
+
+Deterministic responses are particularly important when the output must conform to a predefined schema.
+
+* **Importance of Structured Prompt Design**
+  * Well-designed prompts improve both the quality and reliability of LLM-generated responses.
+  * Using separate system and user prompts provides several benefits:
+    * Clear separation between model behavior and task-specific information.
+    * Consistent output structure.
+    * Easier debugging and maintenance.
+    * Better compatibility with automated validation.
+    * Reduced risk of malformed or incomplete responses.
+
+This approach is considered a best practice when integrating LLMs into software applications.
+
+* **Outcome**
+  * A structured prompting strategy was successfully implemented using a **System Prompt** to define the model's behavior and a **User Prompt Template** containing feature values, predicted class, and prediction probability. Setting **Temperature = 0** ensured deterministic and reproducible outputs, allowing the language model to consistently generate valid JSON responses suitable for automated processing and schema validation.

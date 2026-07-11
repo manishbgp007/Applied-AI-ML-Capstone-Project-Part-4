@@ -219,7 +219,7 @@ Combined with a fallback mechanism, schema validation ensures that the applicati
 
 
  ### Task 5: Guardrails
-  * To improve the safety and privacy of the application, a **guardrail mechanism** was implemented before sending user input to the Large Language Model (LLM). The purpose of these guardrails was to detect and prevent the transmission of **Personally Identifiable Information (PII)**, such as email addresses and phone numbers.
+   * To improve the safety and privacy of the application, a **guardrail mechanism** was implemented before sending user input to the Large Language Model (LLM). The purpose of these guardrails was to detect and prevent the transmission of **Personally Identifiable Information (PII)**, such as email addresses and phone numbers.
 
 * **Purpose of Guardrails
   * Large Language Models should not process sensitive personal information unless it is explicitly required and handled securely. Therefore, an input validation step was added to identify common forms of PII before any request was sent to the LLM.
@@ -237,15 +237,15 @@ Regex provides a fast and efficient way to detect text that matches known patter
 The guardrail was tested using different types of input.
 
 * Input Containing an Email Address
-  *An input containing an email address was submitted to the validation system.
-    * **Result:**
+  * An input containing an email address was submitted to the validation system.
+  * **Result:**
     * The Regex pattern successfully detected the email address.
     * The request was blocked before reaching the LLM.
     * A validation message was returned to indicate that sensitive information had been detected.
 
 This confirmed that the guardrail correctly prevented the processing of personal data.
 
-* **Input Without Personally Identifiable Information
+* Input Without Personally Identifiable Information
   * A second input containing no email address or phone number was tested.
   * **Result:**
     * No sensitive information was detected.

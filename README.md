@@ -20,10 +20,11 @@ Using a dedicated function improves code readability, maintainability, and makes
   * The API key was handled securely to protect sensitive credentials.
   * Instead of hardcoding the API key directly into the source code, it was loaded from a secure location such as an environment variable or a configuration file that is excluded from version control.
   * This approach provides several benefits:
-  * Prevents accidental exposure of secret credentials.
-  * Improves application security.
-  * Allows the same code to be used across different environments.
-  * Follows standard software development and deployment best practices.
+    * Prevents accidental exposure of secret credentials.
+    * Improves application security.
+    * Allows the same code to be used across different environments.
+    * Follows standard software development and deployment best practices.
+   
 Sensitive credentials were **not** stored in the GitHub repository.
 
 * **Testing the Connection**

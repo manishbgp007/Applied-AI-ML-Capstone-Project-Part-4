@@ -113,11 +113,12 @@ _______________________________________
   * Since this project requires structured JSON responses that can be processed programmatically, understanding the impact of temperature is essential.
 
 * **Comparison Results**
-  **| Test Input  | Output (Temperature = 0)                      | Output (Temperature = 0.7)                               | Key Difference                            |**
-    | ----------- | --------------------------------------------- | -------------------------------------------------------- | ----------------------------------------- |
-    | **Input 1** | Consistent and identical JSON output          | More varied wording and explanations                     | Deterministic vs. variable responses      |
-    | **Input 2** | Same JSON structure with consistent reasoning | Different explanations while preserving the main meaning | Increased diversity at higher temperature |
-    | **Input 3** | Valid JSON generated consistently             | Occasional formatting drift or inconsistent JSON         | Higher risk of invalid structured output  |
+
+  | **Test Input** | **Output (Temperature = 0)**                  | **Output (Temperature = 0.7)**                           | **Key Difference**                        |
+  | ---------------| ----------------------------------------------| ---------------------------------------------------------| ----------------------------------------- |
+  | **Input 1**    | Consistent and identical JSON output          | More varied wording and explanations                     | Deterministic vs. variable responses      |
+  | **Input 2**    | Same JSON structure with consistent reasoning | Different explanations while preserving the main meaning | Increased diversity at higher temperature |
+  | **Input 3**    | Valid JSON generated consistently             | Occasional formatting drift or inconsistent JSON         | Higher risk of invalid structured output  |
 
 * **Interpretation of Temperature = 0**
   * When the model was configured with **Temperature = 0**, the generated responses were highly deterministic.

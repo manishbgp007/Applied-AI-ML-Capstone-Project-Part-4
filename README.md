@@ -272,12 +272,14 @@ The final task demonstrated the complete workflow of the project by integrating 
 
 * **Demonstration Results**
   * The end-to-end system was tested using three different feature inputs.
-    **| Feature Input | Predicted Class | Prediction Probability | LLM Output       | JSON Validation | Guardrail Status |**
-      | ------------- | --------------: | ---------------------: | ---------------- | --------------- | ---------------- |
-      | **Input 1**   |               1 |                   0.87 | JSON explanation | Pass            | Pass             |
-      | **Input 2**   |               0 |                   0.65 | JSON explanation | Pass            | Pass             |
-      | **Input 3**   |               1 |                   0.92 | JSON explanation | Pass            | Pass             |
-  * The table summarizes the complete processing pipeline for each test case, including the model prediction, prediction confidence, AI-generated explanation, JSON validation result, and guardrail status.
+  
+    | **Feature Input** | **Predicted Class** | **Prediction Probability** | **LLM Output**    | **JSON Validation** | **Guardrail Status** |
+    | ------------------|---------------------|----------------------------|-------------------|---------------------|----------------------|
+    | **Input 1**       |               1     |                   0.87     | JSON explanation  | Pass                | Pass                 |
+    | **Input 2**       |               0     |                   0.65     | JSON explanation  | Pass                | Pass                 |
+    | **Input 3**       |               1     |                   0.92     | JSON explanation  | Pass                | Pass                 |
+
+   * The table summarizes the complete processing pipeline for each test case, including the model prediction, prediction confidence, AI-generated explanation, JSON validation result, and guardrail status.
 
 * **Interpretation of Results**
   * The demonstration confirmed that:
